@@ -1,9 +1,9 @@
 import os
 from pynubank import Nubank
 from dotenv import load_dotenv
-from pathlib import Path
 
-load_dotenv(Path(dotenv_path="../config/credentials.env"))
+
+load_dotenv()
 
 user = {
     "cpf" : os.getenv("CPF"),
@@ -13,6 +13,6 @@ user = {
 
 nu = Nubank()
 
-#nu.authenticate_with_cert(user["cpf"], user["passwd"], user["cert_path"])
-#print(nu.get_account_balance())
-print(user["cpf"])
+nu.authenticate_with_cert(user["cpf"], user["passwd"], user["cert_path"])
+print(nu.get_account_balance())
+#print(user["cert_path"])
